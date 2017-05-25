@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-navbar>
+	<ion-title>События IT52</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content [style.border-left]="'3px solid ' + event.color" padding>
+    <h1>{{ event.title }}</h1>
+    <p>
+	<b>{{ event.started_at | date:"dd/MM/yyyy H:mm"  }}</b>
+	&mdash;
+	<span color="danger">{{ event.organizer }}</span>
+	<ion-badge item-right>{{ event.participant_cx }}</ion-badge>
+    </p>
+    <p>
+	<i>{{ event.place }}</i>
+    </p>
+    <div [innerHTML]="markdownText | safeHtml"></div>
+    <img [src]="event.image" *ngIf="event.image">
+</ion-content>

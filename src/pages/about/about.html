@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      О программе
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-row>
+	<ion-col></ion-col>
+	<ion-col col-8>
+	    <img src="./assets/logo_256x256.png">
+	</ion-col>
+	<ion-col></ion-col>
+    </ion-row>
+    <ion-row>
+	<ion-col></ion-col>
+	<ion-col col-12>
+	    <p>
+		it52.info - Нижегородское IT Сообщество.<br><br>
+		Приложение выводит список событий с сайта it52.info используя API.
+		Добавить событие можно на сайте.
+	    </p>
+	    <p>
+		<button ion-button block color="danger" (click)="goToSite()">Сайт it52.info</button>
+		<button ion-button block color="primary" (click)="goToSite()">Telegram канал @it52.info</button>
+	    </p>
+	</ion-col>
+	<ion-col></ion-col>
+    </ion-row>
+</ion-content>
+<ion-footer>
+   
+    <p text-center>Разработка: <a (click)="goToAuthor()">Dmitry Rodichev</a></p>
+
+</ion-footer>

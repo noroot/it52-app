@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-navbar>
+	<ion-title>События IT52</ion-title>
+	<ion-buttons end>
+	    <button ion-button icon-only (click)="goToAbout()">
+		<ion-icon name="help-circle-outline"></ion-icon>
+	    </button>
+	</ion-buttons>
+    </ion-navbar>
+
+    <ion-toolbar>
+	<ion-segment [(ngModel)]="eventFilter" color="warning" (ionChange)="updateEvents()">
+	    <ion-segment-button value="upcoming">
+		Будут
+	    </ion-segment-button>
+	    <ion-segment-button value="past">
+		Были
+	    </ion-segment-button>
+	</ion-segment>
+    </ion-toolbar>
+
+</ion-header>
+<ion-content>
+    <ion-list *ngIf="eventsFiltered.length > 0">
+	<button ion-item *ngFor="let event of eventsFiltered" (click)="goToEvent(event)" [style.border-left]="'5px solid ' + event.color">
+	    <h3> {{ event.title }} </h3>
+	    <p *ngIf="event.isToday">
+		<ion-badge color="danger">{{ event.started_at | date:"dd/MM/yyyy H:mm"  }}</ion-badge>
+		&mdash;
+		{{ event.organizer }}
+	    </p>
+	    <p *ngIf="!event.isToday">
+		{{ event.started_at | date:"dd/MM/yyyy H:mm"  }}
+		&mdash;
+		{{ event.organizer }}
+	    </p>
+	    <p>
+		{{ event.place }}
+	    </p>
+	</button>
+    </ion-list>
+    <div padding *ngIf="eventsFiltered.length == 0 && isLoaded">
+	<p>Пока ничего нет, но скоро обязательно будет.</p>
+    </div>
+</ion-content>
