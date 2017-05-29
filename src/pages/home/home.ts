@@ -8,6 +8,7 @@ import { NativeStorage } from '@ionic-native/native-storage';
 import * as moment from 'moment/moment';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { GA_ID } from '../../app/constants';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @Component({
     selector: 'page-home',
@@ -28,7 +29,8 @@ export class HomePage {
         private network: Network,
         private platform: Platform,
         private nativeStorage: NativeStorage,
-        private ga: GoogleAnalytics
+        private ga: GoogleAnalytics,
+        private iab: InAppBrowser
     ) {
         this.events = [];
         this.eventsFiltered = [];
@@ -60,6 +62,10 @@ export class HomePage {
         this.ga.startTrackerWithId(GA_ID).then(() => {
             this.ga.trackView('Events list');
         }).catch(e => console.log('Error starting GoogleAnalytics', e));
+    }
+
+    goToAddForm() {
+        this.iab.create('https://www.it52.info/events/new', '_blank');
     }
 
     ionViewDidLoad() {

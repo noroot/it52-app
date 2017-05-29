@@ -24,6 +24,10 @@ export class AboutPage {
     }
 
     public goToSite() {
+        this.iab.create("https://www.it52.info", '_blank');
+    }
+
+    public goToTelegram() {
         this.iab.create("https://telegram.me/it52info", '_blank');
     }
 

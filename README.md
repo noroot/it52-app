@@ -18,5 +18,7 @@ Events requested from API endpoint on https://www.it52.info/
 
 ## Credits
 
-https://www.it52.info
+Site: https://www.it52.info
+
+App Store: https://itunes.apple.com/us/app/it52/id1239876838
 
